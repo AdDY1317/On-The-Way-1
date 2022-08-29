@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rigidbody2d;
     public float speed;
+    public GameObject gameWonPanel;
+
+    private bool isGameWon= false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +20,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+        if(isGameWon== true)
+        {
+            return;
+        }
     }
 
     public void Movement()
@@ -46,6 +54,8 @@ public class Player : MonoBehaviour
         if (other.tag == "Door")
         {
             Debug.Log("level complete");
+            gameWonPanel.SetActive(true);
+            isGameWon = true;
         }
     }
 
