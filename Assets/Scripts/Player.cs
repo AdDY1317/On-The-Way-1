@@ -8,8 +8,9 @@ public class Player : MonoBehaviour
     public Rigidbody2D rigidbody2d;
     public float speed;
     public GameObject gameWonPanel;
+    public GameObject gameLostPanel;
 
-    private bool isGameWon= false;
+    private bool isGameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        if(isGameWon== true)
+        if(isGameOver== true)
         {
             return;
         }
@@ -55,8 +56,20 @@ public class Player : MonoBehaviour
         {
             Debug.Log("level complete");
             gameWonPanel.SetActive(true);
-            isGameWon = true;
+            isGameOver = true;
         }
+        else if (other.tag == "Enemy")
+        {
+            Debug.Log("You Died");
+            gameLostPanel.SetActive(true);
+            isGameOver = true;
+        }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+        Debug.Log("Button");
     }
 
 }
