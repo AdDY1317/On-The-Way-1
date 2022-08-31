@@ -64,6 +64,13 @@ public class Player : MonoBehaviour
             gameLostPanel.SetActive(true);
             isGameOver = true;
         }
+        else if (other.tag == "Maze")
+        {
+            Debug.Log("You Died");
+            gameLostPanel.SetActive(true);
+            isGameOver = true;
+           
+        }
     }
 
     public void RestartGame()
