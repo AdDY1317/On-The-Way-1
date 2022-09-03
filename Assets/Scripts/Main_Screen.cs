@@ -28,4 +28,10 @@ public class Main_Screen : MonoBehaviour
         Application.Quit();
         Debug.Log("Application Quit");
     }
+
+    public void NextGame()
+    {
+        SceneManager.LoadScene(2);
+        Debug.Log("Next Level");
+    }
 }
