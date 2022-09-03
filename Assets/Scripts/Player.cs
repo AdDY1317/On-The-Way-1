@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
      void Awake()
     {
         _enemy = enemy.GetComponent<Enemy>();
+        
     }
     // Start is called before the first frame update
     void Start()
     {
         _enemy.movement();
-    }
+    } 
 
     // Update is called once per frame
     void Update()
@@ -30,8 +31,8 @@ public class Player : MonoBehaviour
        
         if(isGameOver== true)
         {
-            return;
-          
+         return;
+            
         }
         if (Input.GetAxis("Horizontal") > 0)  //it is positive---right and left
         {
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
         else if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)  // stop
         {
             rigidbody2d.velocity = new Vector2(0f, 0f);
+           
         }
     } 
     private void OnTriggerEnter2D(Collider2D other)
